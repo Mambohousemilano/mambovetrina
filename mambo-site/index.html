@@ -27,6 +27,7 @@
   .btn{display:inline-flex;align-items:center;gap:9px;cursor:pointer;border:none;font-family:'Red Hat Display';font-weight:500;
     text-transform:uppercase;letter-spacing:.13em;font-size:11.5px;padding:12px 22px;border-radius:4px;transition:.3s;position:relative;overflow:hidden}
   .btn-gold{background:linear-gradient(135deg,#f0d99a,#c99a3f);color:#1a1305}
+  #hdr .nav>.btn-gold{white-space:nowrap}
   .btn-gold::after{content:"";position:absolute;top:0;left:-120%;width:55%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);transform:skewX(-20deg);transition:.6s}
   .btn-gold:hover::after{left:140%}
   .btn-gold:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(201,162,74,.3)}
@@ -88,7 +89,7 @@
     .arc,.badge,.spark{display:none}
     .hero-inner{max-width:none;padding:54px 26px 0}
     .hero-photo{background-position:center}
-    .hero-veil{background:linear-gradient(180deg,rgba(10,10,12,.5),rgba(10,10,12,.35),rgba(10,10,12,.88))}
+    .hero-veil{background:linear-gradient(180deg,rgba(8,8,10,.74),rgba(8,8,10,.6) 45%,rgba(8,8,10,.93))}
     .featrow{position:static;grid-template-columns:repeat(2,1fr);gap:20px 0;padding:28px 26px;margin-top:26px}
   }
   @media(max-width:560px){.featrow{grid-template-columns:1fr}}
@@ -182,10 +183,10 @@
   .cta h2{font-size:clamp(30px,4.2vw,50px)}
   .cta .sub{color:var(--muted);margin-top:14px;max-width:380px}
   .book{background:linear-gradient(180deg,#16141a,#100f13);border:1px solid var(--hair);border-radius:14px;padding:16px 18px;display:flex;flex-wrap:wrap;align-items:flex-end;gap:12px}
-  .book .fld{flex:1 1 110px;display:flex;flex-direction:column;gap:6px}
+  .book .fld{flex:1 1 110px;min-width:0;display:flex;flex-direction:column;gap:6px}
   .book .fld.act{flex:0 0 auto}
   .book label{font-family:'Red Hat Display';font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
-  .book input,.book select{background:#0d0c10;border:1px solid var(--hair);border-radius:7px;color:var(--cream);font-family:'Red Hat Display';font-size:13px;padding:11px 10px;width:100%;min-height:42px;color-scheme:dark}
+  .book input,.book select{background:#0d0c10;border:1px solid var(--hair);border-radius:7px;color:var(--cream);font-family:'Red Hat Display';font-size:13px;padding:11px 10px;width:100%;min-width:0;max-width:100%;box-sizing:border-box;min-height:42px;color-scheme:dark}
   .book input::-webkit-calendar-picker-indicator{filter:invert(.7) sepia(1) saturate(3) hue-rotate(2deg)}
   .book .btn{margin-top:0;white-space:nowrap}
   @media(max-width:880px){.cta .inner{grid-template-columns:1fr;padding:60px 0}.cta-scrim{background:linear-gradient(180deg,var(--bg),rgba(10,10,12,.6))}.book .fld{flex:1 1 45%}.book .fld.act{flex:1 1 100%}.book .btn{width:100%}}
@@ -263,8 +264,8 @@
 
   .mini{margin-top:12px;border-top:1px solid var(--hair);padding-top:12px}
   .mini-flds{display:flex;gap:7px;margin-bottom:9px}
-  .mini-flds label{flex:1;display:flex;flex-direction:column;gap:3px;font-family:'Red Hat Display',sans-serif;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-  .mini-flds input{background:#0d0c10;border:1px solid var(--hair);border-radius:7px;color:var(--cream);padding:9px 9px;font-family:'Red Hat Display',sans-serif;font-size:13px;width:100%;min-height:40px;color-scheme:dark}
+  .mini-flds label{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px;font-family:'Red Hat Display',sans-serif;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .mini-flds input{background:#0d0c10;border:1px solid var(--hair);border-radius:7px;color:var(--cream);padding:9px 9px;font-family:'Red Hat Display',sans-serif;font-size:13px;width:100%;min-width:0;max-width:100%;min-height:40px;color-scheme:dark}
   .mini-flds input::-webkit-calendar-picker-indicator{filter:invert(.7) sepia(1) saturate(3) hue-rotate(2deg)}
   .mini-flds input:focus{outline:none;border-color:var(--gold)}
   .m-btn{width:100%;font-size:12px;padding:10px}
@@ -306,6 +307,35 @@
   @media(max-width:820px){.well-grid{grid-template-columns:1fr;gap:30px}.well-feats{grid-template-columns:1fr 1fr}}
   @media(min-width:881px){.grid3 .suite:last-child:nth-child(3n+1){grid-column:2}}
   @media(max-width:560px){.mini-flds{flex-direction:column;gap:8px}.well-feats{grid-template-columns:1fr}}
+  /* FIX 4 — card comfort con sfondo immagine */
+  .cards4 .c4{background-color:#0c0b09;background-size:cover;background-position:center;background-repeat:no-repeat}
+  .cards4 .c4::after{content:"";position:absolute;inset:0;border-radius:14px;background:linear-gradient(180deg,rgba(12,10,7,.66),rgba(8,7,5,.9));z-index:0}
+  .cards4 .c4>*{position:relative;z-index:1}
+  .cards4 .c4:nth-child(1){background-image:url('https://images.unsplash.com/photo-1558002038-1055907df827?w=700&q=70')}
+  .cards4 .c4:nth-child(2){background-image:url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=700&q=70')}
+  .cards4 .c4:nth-child(3){background-image:url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=700&q=70')}
+  .cards4 .c4:nth-child(4){background-image:url('https://images.unsplash.com/photo-1521791136064-7986c2920216?w=700&q=70')}
+  /* FIX 2 — badge eventi: testo centrato e dentro al cerchio su mobile */
+  @media(max-width:880px){
+    .ev-badge{width:138px;height:138px;right:14px}
+    .ev-badge .inner{padding:0 10px}
+    .ev-badge svg{width:17px;height:17px;margin:0 auto 5px}
+    .ev-badge b{font-size:8px;letter-spacing:.05em;line-height:1.1}
+    .ev-badge b span{padding:2.5px 0}
+  }
+  /* FIX 5 — modulo gruppi: campi a tutta larghezza su telefono */
+  @media(max-width:560px){
+    .book{padding:14px}
+    .book .fld{flex:1 1 100%}
+    .book .fld.act{flex:1 1 100%}
+  }
+  /* FIX 6 — bottone PRENOTA ORA compatto su mobile */
+  @media(max-width:560px){
+    #hdr .nav>.btn-gold{font-size:9.5px;padding:9px 13px;letter-spacing:.06em;gap:6px}
+  }
+  @media(max-width:380px){
+    #hdr .nav>.btn-gold{font-size:9px;padding:8px 11px;letter-spacing:.04em}
+  }
 </style>
 </head>
 <body>
