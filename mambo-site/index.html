@@ -82,7 +82,7 @@
     padding:22px 58px;background:linear-gradient(180deg,transparent,rgba(6,5,4,.6));border-top:1px solid rgba(201,162,74,.2)}
   .featrow .it{display:flex;gap:12px;align-items:flex-start;padding-right:16px}
   .featrow .fi{flex:none;margin-top:1px}
-  .featrow .fi svg{width:22px;height:22px;stroke:var(--gold-b);fill:none;stroke-width:1.4}
+  .featrow .fi svg{width:23px;height:23px;stroke:var(--gold-b);fill:none;stroke-width:1.9;filter:drop-shadow(0 1px 4px rgba(0,0,0,.7))}
   .featrow .t{font-family:'Red Hat Display';font-weight:700;font-size:13px;color:#ffffff;line-height:1.2;text-shadow:0 1px 6px rgba(0,0,0,.75)}
   .featrow .d{font-size:11px;color:#ece7dc;font-weight:600;line-height:1.35;margin-top:3px;text-shadow:0 1px 5px rgba(0,0,0,.65)}
   @media(max-width:1000px){
@@ -90,7 +90,7 @@
     .hero-inner{max-width:none;padding:54px 26px 0}
     .hero-photo{background-position:center}
     .hero-veil{background:linear-gradient(180deg,rgba(8,8,10,.74),rgba(8,8,10,.6) 45%,rgba(8,8,10,.93))}
-    .featrow{position:static;grid-template-columns:repeat(2,1fr);gap:20px 0;padding:28px 26px;margin-top:26px}
+    .featrow{position:static;grid-template-columns:repeat(2,1fr);gap:20px 0;padding:26px 24px;margin-top:24px;background:linear-gradient(180deg,rgba(8,8,10,.55),rgba(8,8,10,.92));border-top:1px solid var(--hair)}
   }
   @media(max-width:560px){.featrow{grid-template-columns:1fr}}
 
@@ -445,7 +445,7 @@
           <div class="mini-flds">
             <label>Check-in<input type="date" class="m-ci"></label>
             <label>Check-out<input type="date" class="m-co"></label>
-            <label>Ospiti<input type="number" class="m-osp" min="1" value="2" inputmode="numeric"></label>
+            <label>Ospiti<input type="number" class="m-osp" min="1" placeholder="Ospiti" inputmode="numeric"></label>
           </div>
           <button class="btn btn-gold m-btn" type="button">Verifica disponibilità <span class="arr">→</span></button>
           <div class="m-res"></div>
@@ -462,7 +462,7 @@
           <div class="mini-flds">
             <label>Check-in<input type="date" class="m-ci"></label>
             <label>Check-out<input type="date" class="m-co"></label>
-            <label>Ospiti<input type="number" class="m-osp" min="1" value="3" inputmode="numeric"></label>
+            <label>Ospiti<input type="number" class="m-osp" min="1" placeholder="Ospiti" inputmode="numeric"></label>
           </div>
           <button class="btn btn-gold m-btn" type="button">Verifica disponibilità <span class="arr">→</span></button>
           <div class="m-res"></div>
@@ -479,7 +479,7 @@
           <div class="mini-flds">
             <label>Check-in<input type="date" class="m-ci"></label>
             <label>Check-out<input type="date" class="m-co"></label>
-            <label>Ospiti<input type="number" class="m-osp" min="1" value="3" inputmode="numeric"></label>
+            <label>Ospiti<input type="number" class="m-osp" min="1" placeholder="Ospiti" inputmode="numeric"></label>
           </div>
           <button class="btn btn-gold m-btn" type="button">Verifica disponibilità <span class="arr">→</span></button>
           <div class="m-res"></div>
@@ -496,7 +496,7 @@
           <div class="mini-flds">
             <label>Check-in<input type="date" class="m-ci"></label>
             <label>Check-out<input type="date" class="m-co"></label>
-            <label>Ospiti<input type="number" class="m-osp" min="1" value="6" inputmode="numeric"></label>
+            <label>Ospiti<input type="number" class="m-osp" min="1" placeholder="Ospiti" inputmode="numeric"></label>
           </div>
           <button class="btn btn-gold m-btn" type="button">Verifica disponibilità <span class="arr">→</span></button>
           <div class="m-res"></div>
@@ -513,7 +513,7 @@
           <div class="mini-flds">
             <label>Check-in<input type="date" class="m-ci"></label>
             <label>Check-out<input type="date" class="m-co"></label>
-            <label>Ospiti<input type="number" class="m-osp" min="1" value="2" inputmode="numeric"></label>
+            <label>Ospiti<input type="number" class="m-osp" min="1" placeholder="Ospiti" inputmode="numeric"></label>
           </div>
           <button class="btn btn-gold m-btn" type="button">Verifica disponibilità <span class="arr">→</span></button>
           <div class="m-res"></div>
@@ -530,7 +530,7 @@
           <div class="mini-flds">
             <label>Check-in<input type="date" class="m-ci"></label>
             <label>Check-out<input type="date" class="m-co"></label>
-            <label>Ospiti<input type="number" class="m-osp" min="1" value="5" inputmode="numeric"></label>
+            <label>Ospiti<input type="number" class="m-osp" min="1" placeholder="Ospiti" inputmode="numeric"></label>
           </div>
           <button class="btn btn-gold m-btn" type="button">Verifica disponibilità <span class="arr">→</span></button>
           <div class="m-res"></div>
@@ -547,7 +547,7 @@
           <div class="mini-flds">
             <label>Check-in<input type="date" class="m-ci"></label>
             <label>Check-out<input type="date" class="m-co"></label>
-            <label>Ospiti<input type="number" class="m-osp" min="1" value="10" inputmode="numeric"></label>
+            <label>Ospiti<input type="number" class="m-osp" min="1" placeholder="Ospiti" inputmode="numeric"></label>
           </div>
           <button class="btn btn-gold m-btn" type="button">Verifica disponibilità <span class="arr">→</span></button>
           <div class="m-res"></div>
@@ -722,7 +722,7 @@
       const apt=card.dataset.apt, osp=parseInt(card.dataset.osp,10);
       const nome=card.querySelector('.stag').textContent.trim();
       const ci=card.querySelector('.m-ci').value, co=card.querySelector('.m-co').value;
-      const g=parseInt(card.querySelector('.m-osp').value||'1',10);
+      const g=parseInt(card.querySelector('.m-osp').value||card.dataset.osp||'1',10);
       const res=card.querySelector('.m-res');
       if(!ci||!co){res.className='m-res show err';res.textContent='Seleziona check-in e check-out.';return;}
       if(co<=ci){res.className='m-res show err';res.textContent='Il check-out deve essere dopo il check-in.';return;}
