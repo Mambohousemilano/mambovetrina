@@ -1,0 +1,9 @@
+{
+  "name": "mambo-house",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sito vetrina Mambo House Milano + verifica disponibilita (legge dal gestionale Supabase)",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.0"
+  }
+}
