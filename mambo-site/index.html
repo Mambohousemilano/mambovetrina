@@ -83,8 +83,8 @@
   .featrow .it{display:flex;gap:12px;align-items:flex-start;padding-right:16px}
   .featrow .fi{flex:none;margin-top:1px}
   .featrow .fi svg{width:22px;height:22px;stroke:var(--gold-b);fill:none;stroke-width:1.4}
-  .featrow .t{font-family:'Red Hat Display';font-weight:500;font-size:12.5px;color:var(--cream);line-height:1.2}
-  .featrow .d{font-size:10.5px;color:var(--muted);line-height:1.35;margin-top:3px}
+  .featrow .t{font-family:'Red Hat Display';font-weight:700;font-size:13px;color:#ffffff;line-height:1.2;text-shadow:0 1px 6px rgba(0,0,0,.75)}
+  .featrow .d{font-size:11px;color:#ece7dc;font-weight:600;line-height:1.35;margin-top:3px;text-shadow:0 1px 5px rgba(0,0,0,.65)}
   @media(max-width:1000px){
     .arc,.badge,.spark{display:none}
     .hero-inner{max-width:none;padding:54px 26px 0}
@@ -339,6 +339,7 @@
   }
   /* FIX 1 — testo hero piu' grande, grassetto e leggibile su mobile */
   @media(max-width:560px){
+    .hero{padding-top:122px}
     .hero h1{font-weight:700;font-size:clamp(38px,9.5vw,46px);line-height:1.05;color:#fbf7ee;filter:drop-shadow(0 2px 12px rgba(0,0,0,.72))}
     .hero p{color:#ece6da;font-size:16px;filter:drop-shadow(0 1px 8px rgba(0,0,0,.6))}
     .hero .kick{color:var(--gold-b);filter:drop-shadow(0 1px 6px rgba(0,0,0,.55))}
