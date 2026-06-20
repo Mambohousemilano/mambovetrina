@@ -98,22 +98,39 @@ async function sbGet(base, key, path) {
 
 module.exports = async (req, res) => {
   try {
-    const { checkin, checkout, guests } = req.query || {};
+    const { apt, checkin, checkout, guests } = req.query || {};
     if (!reDate.test(checkin || '') || !reDate.test(checkout || ''))
       return res.status(400).json({ errore: 'Date non valide (YYYY-MM-DD)' });
     if (checkout <= checkin)
       return res.status(400).json({ errore: 'Il check-out deve essere dopo il check-in' });
-    const g = parseInt(guests, 10);
-    if (!g || g < 1) return res.status(400).json({ errore: 'Numero ospiti non valido' });
 
     const base = (process.env.SUPABASE_URL || '').replace(/\/$/, '');
     const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
     if (!base || !key) return res.status(500).json({ errore: 'Configurazione Supabase mancante' });
 
+    const lastNight = addDays(checkout, -1);
+
+    // ---- VERIFICA SINGOLO APPARTAMENTO (?apt=mX) ----
+    if (apt) {
+      if (!/^[a-z0-9_]+$/i.test(apt)) return res.status(400).json({ errore: 'Alloggio non valido' });
+      const rows = await sbGet(base, key, `apartments?select=id,name,capacity&id=eq.${apt}`);
+      const a = (rows || [])[0];
+      if (!a) return res.status(404).json({ errore: 'Alloggio non trovato' });
+      const bk = await sbGet(base, key,
+        `bookings?select=start_date,end_date&apt_id=eq.${apt}&start_date=lte.${lastNight}&end_date=gte.${checkin}`);
+      const intervals = (bk || []).map(b => [b.start_date, b.end_date]);
+      const isOcc = (_id, day) => intervals.some(([s, e]) => s <= day && day <= e);
+      const libero = aptFreeInRange(isOcc, a.id, checkin, checkout);
+      return res.status(200).json({ singolo: true, id: a.id, nome: a.name, capienza: a.capacity, libero });
+    }
+
+    // ---- RICERCA DI GRUPPO (diretta / spezzata) ----
+    const g = parseInt(guests, 10);
+    if (!g || g < 1) return res.status(400).json({ errore: 'Numero ospiti non valido' });
+
     const apts = await sbGet(base, key, 'apartments?select=id,name,capacity');
     const lista = (apts || []).filter(a => a.capacity > 0);
 
-    const lastNight = addDays(checkout, -1);
     const bk = await sbGet(base, key,
       `bookings?select=apt_id,start_date,end_date&start_date=lte.${lastNight}&end_date=gte.${checkin}`);
     const byApt = {};
