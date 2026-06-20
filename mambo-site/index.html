@@ -103,6 +103,7 @@
   .cards4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
   .c4{position:relative;background:radial-gradient(120% 80% at 50% 0%,rgba(201,162,74,.1),transparent 55%),linear-gradient(180deg,#181410,#0c0b09);border:1px solid rgba(201,162,74,.2);border-radius:14px;padding:36px 18px 30px;text-align:center;overflow:hidden;transition:.3s}
   .c4::before{content:"";position:absolute;top:-26px;left:50%;transform:translateX(-50%);width:130px;height:130px;border-radius:50%;background:radial-gradient(circle,rgba(201,162,74,.28),transparent 70%)}
+  .cards4 .c4::before{display:none}
   .c4:hover{transform:translateY(-5px);border-color:rgba(201,162,74,.55)}
   .c4 .ic{position:relative;width:62px;height:62px;margin:0 auto 16px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle,rgba(201,162,74,.12),transparent);box-shadow:0 0 26px rgba(201,162,74,.28)}
   .c4 .ic svg{width:26px;height:26px;stroke:var(--gold-b);fill:none;stroke-width:1.4}
@@ -308,8 +309,8 @@
   @media(min-width:881px){.grid3 .suite:last-child:nth-child(3n+1){grid-column:2}}
   @media(max-width:560px){.mini-flds{flex-direction:column;gap:8px}.well-feats{grid-template-columns:1fr}}
   /* FIX 4 — card comfort con sfondo immagine */
-  .cards4 .c4{background-color:#0c0b09;background-size:cover;background-position:center;background-repeat:no-repeat}
-  .cards4 .c4::after{content:"";position:absolute;inset:0;border-radius:14px;background:linear-gradient(180deg,rgba(12,10,7,.66),rgba(8,7,5,.9));z-index:0}
+  .cards4 .c4{background-color:#0c0b09;background-clip:padding-box;border-color:transparent;background-size:cover;background-position:center;background-repeat:no-repeat}
+  .cards4 .c4::after{content:"";position:absolute;inset:0;border-radius:14px;background:linear-gradient(180deg,rgba(12,10,7,.62),rgba(8,7,5,.9));box-shadow:inset 0 0 0 1px rgba(201,162,74,.30);z-index:0}
   .cards4 .c4>*{position:relative;z-index:1}
   .cards4 .c4:nth-child(1){background-image:url('https://images.unsplash.com/photo-1558002038-1055907df827?w=700&q=70')}
   .cards4 .c4:nth-child(2){background-image:url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=700&q=70')}
@@ -335,6 +336,18 @@
   }
   @media(max-width:380px){
     #hdr .nav>.btn-gold{font-size:9px;padding:8px 11px;letter-spacing:.04em}
+  }
+  /* FIX 1 — testo hero piu' grande, grassetto e leggibile su mobile */
+  @media(max-width:560px){
+    .hero h1{font-weight:700;font-size:clamp(38px,9.5vw,46px);line-height:1.05;color:#fbf7ee;filter:drop-shadow(0 2px 12px rgba(0,0,0,.72))}
+    .hero p{color:#ece6da;font-size:16px;filter:drop-shadow(0 1px 8px rgba(0,0,0,.6))}
+    .hero .kick{color:var(--gold-b);filter:drop-shadow(0 1px 6px rgba(0,0,0,.55))}
+  }
+  /* FIX 3 — input data: niente sporgenze dal riquadro su iOS, tutto simmetrico */
+  @media(max-width:560px){
+    .book{overflow:hidden}
+    .book input,.book select,.mini-flds input{-webkit-appearance:none;appearance:none;box-sizing:border-box;width:100%;max-width:100%;min-width:0}
+    .book input[type=date]::-webkit-date-and-time-value,.mini-flds input[type=date]::-webkit-date-and-time-value{text-align:left}
   }
 </style>
 </head>
