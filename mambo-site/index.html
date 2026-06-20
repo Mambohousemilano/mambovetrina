@@ -260,6 +260,21 @@
   .dispo b{color:#fff;font-weight:600}
   .dispo .wa-inline{display:inline-block;margin-top:6px;color:var(--gold-b);text-decoration:none;border-bottom:1px solid var(--gold);font-weight:600}
   .dispo .wa-inline:hover{color:#fff}
+
+  .mini{margin-top:12px;border-top:1px solid var(--hair);padding-top:12px}
+  .mini-flds{display:flex;gap:7px;margin-bottom:9px}
+  .mini-flds label{flex:1;display:flex;flex-direction:column;gap:3px;font-family:'Jost',sans-serif;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .mini-flds input{background:rgba(8,7,5,.6);border:1px solid var(--hair);border-radius:7px;color:var(--cream);padding:7px 8px;font-family:'Jost',sans-serif;font-size:12.5px;width:100%}
+  .mini-flds input:focus{outline:none;border-color:var(--gold)}
+  .m-btn{width:100%;font-size:12px;padding:10px}
+  .m-res{display:none;margin-top:9px;font-family:'Jost',sans-serif;font-size:12.5px;line-height:1.5;color:var(--cream);background:rgba(8,7,5,.5);border:1px solid var(--hair);border-radius:8px;padding:10px 12px}
+  .m-res.show{display:block;animation:heroUp .35s ease both}
+  .m-res.ok{border-color:rgba(120,200,140,.55);background:rgba(20,40,26,.4)}
+  .m-res.err{border-color:rgba(210,130,110,.5);background:rgba(45,22,18,.35)}
+  .m-res.warn{border-color:rgba(220,180,90,.55);background:rgba(45,38,16,.4)}
+  .m-res b{color:#fff}
+  .m-res .wa-inline{display:inline-block;margin-top:6px;color:var(--gold-b);text-decoration:none;border-bottom:1px solid var(--gold);font-weight:600}
+  .m-res .wa-inline:hover{color:#fff}
 </style>
 </head>
 <body>
@@ -306,6 +321,23 @@
   </div>
 </section>
 
+<!-- CTA -->
+<section class="cta reveal"><div class="cta-bg"></div><div class="cta-scrim"></div>
+  <div class="wrap"><div class="inner">
+    <div>
+      <h2>Pronto a vivere <span class="gold">Milano</span><br>nel massimo del <span class="gold">comfort</span>?</h2>
+      <p class="sub">Prenota ora la tua suite e lasciati sorprendere da un'esperienza senza pari.</p>
+    </div>
+    <div class="book">
+      <div class="fld"><label>Check-in</label><input type="date" id="ci"></div>
+      <div class="fld"><label>Check-out</label><input type="date" id="co"></div>
+      <div class="fld"><label>Ospiti totali</label><input type="number" id="osp" min="1" max="60" value="2" inputmode="numeric"></div>
+      <div class="fld act"><button class="btn btn-gold" id="verify">Verifica disponibilità <span class="arr">→</span></button></div>
+    <div id="dispoResult" class="dispo"></div>
+    </div>
+  </div></div>
+</section>
+
 <!-- COMFORT -->
 <section class="comfort reveal" id="comfort"><div class="wrap"><div class="grid">
   <div class="lead">
@@ -328,67 +360,123 @@
     <a class="btn btn-ghost" href="https://wa.me/393312526279?text=Ciao%20Mambo%20House!" target="_blank">Contattaci <span class="arr">→</span></a>
   </div>
   <div class="grid3">
-    <div class="suite">
+    <div class="suite" data-apt="m1" data-osp="2">
       <div class="suite-img"><span class="stag">Mambo House 1</span><span class="heart"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C1 9 2.5 5.5 6 5.5c2 0 3 1.2 6 4 3-2.8 4-4 6-4 3.5 0 5 3.5 3.5 6.5C19 16.5 12 21 12 21z"/></svg></span>
         <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?q=80&w=900&auto=format&fit=crop" alt="">
         <div class="sprice"><small>da </small><b>€75</b><small>/notte</small></div></div>
       <div class="suite-body">
         <div class="specs"><span class="sp"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 20c0-3.2 2.5-5 5.5-5s5.5 1.8 5.5 5"/><path d="M16 5.6a3 3 0 0 1 0 4.8M17.5 15c2.3.5 3.5 2 3.5 5"/></svg>2 ospiti</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M3 16v-4a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v4M3 16h18M5 9V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v2"/></svg>1 camera</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M3 18v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4M3 18v2M21 18v2M3 14h18M6 12V9.6A1.6 1.6 0 0 1 7.6 8h2.8A1.6 1.6 0 0 1 12 9.6V12"/></svg>1 letto</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M4 12h16v3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/><path d="M7 12V6a2 2 0 0 1 4 0"/></svg>1 bagno</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M12 3v6M7 9c0-3 10-3 10 0M5 20c0-6 14-6 14 0"/></svg>Giardino privato</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M4 13h16v3a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3z"/></svg>Jacuzzi condivisa</span></div>
-        <a class="btn btn-gold" href="https://wa.me/393312526279?text=Ciao!%20Vorrei%20prenotare%20Mambo%20House%201" target="_blank">Scopri e prenota <span class="arr">→</span></a>
+        <div class="mini">
+          <div class="mini-flds">
+            <label>Check-in<input type="date" class="m-ci"></label>
+            <label>Check-out<input type="date" class="m-co"></label>
+            <label>Ospiti<input type="number" class="m-osp" min="1" value="2" inputmode="numeric"></label>
+          </div>
+          <button class="btn btn-gold m-btn" type="button">Verifica disponibilità <span class="arr">→</span></button>
+          <div class="m-res"></div>
+        </div>
       </div>
     </div>
-    <div class="suite">
+    <div class="suite" data-apt="m2" data-osp="3">
       <div class="suite-img"><span class="stag">Mambo House 2</span><span class="heart"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C1 9 2.5 5.5 6 5.5c2 0 3 1.2 6 4 3-2.8 4-4 6-4 3.5 0 5 3.5 3.5 6.5C19 16.5 12 21 12 21z"/></svg></span>
         <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=900&auto=format&fit=crop" alt="">
         <div class="sprice"><small>da </small><b>€100</b><small>/notte</small></div></div>
       <div class="suite-body">
         <div class="specs"><span class="sp"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 20c0-3.2 2.5-5 5.5-5s5.5 1.8 5.5 5"/><path d="M16 5.6a3 3 0 0 1 0 4.8M17.5 15c2.3.5 3.5 2 3.5 5"/></svg>3 ospiti</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M3 16v-4a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v4M3 16h18M5 9V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v2"/></svg>1 camera</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M3 18v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4M3 18v2M21 18v2M3 14h18M6 12V9.6A1.6 1.6 0 0 1 7.6 8h2.8A1.6 1.6 0 0 1 12 9.6V12"/></svg>1 letto + divano</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M4 12h16v3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/><path d="M7 12V6a2 2 0 0 1 4 0"/></svg>1 bagno</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M12 3v6M7 9c0-3 10-3 10 0M5 20c0-6 14-6 14 0"/></svg>Giardino privato</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M4 13h16v3a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3z"/></svg>Jacuzzi condivisa</span></div>
-        <a class="btn btn-gold" href="https://wa.me/393312526279?text=Ciao!%20Vorrei%20prenotare%20Mambo%20House%202" target="_blank">Scopri e prenota <span class="arr">→</span></a>
+        <div class="mini">
+          <div class="mini-flds">
+            <label>Check-in<input type="date" class="m-ci"></label>
+            <label>Check-out<input type="date" class="m-co"></label>
+            <label>Ospiti<input type="number" class="m-osp" min="1" value="3" inputmode="numeric"></label>
+          </div>
+          <button class="btn btn-gold m-btn" type="button">Verifica disponibilità <span class="arr">→</span></button>
+          <div class="m-res"></div>
+        </div>
       </div>
     </div>
-    <div class="suite">
+    <div class="suite" data-apt="m3" data-osp="3">
       <div class="suite-img"><span class="stag">Mambo House 3</span><span class="heart"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C1 9 2.5 5.5 6 5.5c2 0 3 1.2 6 4 3-2.8 4-4 6-4 3.5 0 5 3.5 3.5 6.5C19 16.5 12 21 12 21z"/></svg></span>
         <img src="https://images.unsplash.com/photo-1607712617949-8c993d290809?q=80&w=900&auto=format&fit=crop" alt="">
         <div class="sprice"><small>da </small><b>€100</b><small>/notte</small></div></div>
       <div class="suite-body">
         <div class="specs"><span class="sp"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 20c0-3.2 2.5-5 5.5-5s5.5 1.8 5.5 5"/><path d="M16 5.6a3 3 0 0 1 0 4.8M17.5 15c2.3.5 3.5 2 3.5 5"/></svg>3 ospiti</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M3 16v-4a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v4M3 16h18M5 9V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v2"/></svg>1 camera</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M3 18v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4M3 18v2M21 18v2M3 14h18M6 12V9.6A1.6 1.6 0 0 1 7.6 8h2.8A1.6 1.6 0 0 1 12 9.6V12"/></svg>2 letti</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M4 12h16v3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/><path d="M7 12V6a2 2 0 0 1 4 0"/></svg>1 bagno</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M12 3v6M7 9c0-3 10-3 10 0M5 20c0-6 14-6 14 0"/></svg>Giardino privato</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M4 13h16v3a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3z"/></svg>Jacuzzi condivisa</span></div>
-        <a class="btn btn-gold" href="https://wa.me/393312526279?text=Ciao!%20Vorrei%20prenotare%20Mambo%20House%203" target="_blank">Scopri e prenota <span class="arr">→</span></a>
+        <div class="mini">
+          <div class="mini-flds">
+            <label>Check-in<input type="date" class="m-ci"></label>
+            <label>Check-out<input type="date" class="m-co"></label>
+            <label>Ospiti<input type="number" class="m-osp" min="1" value="3" inputmode="numeric"></label>
+          </div>
+          <button class="btn btn-gold m-btn" type="button">Verifica disponibilità <span class="arr">→</span></button>
+          <div class="m-res"></div>
+        </div>
       </div>
     </div>
-    <div class="suite">
+    <div class="suite" data-apt="m5" data-osp="6">
       <div class="suite-img"><span class="stag">Mambo House 5</span><span class="heart"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C1 9 2.5 5.5 6 5.5c2 0 3 1.2 6 4 3-2.8 4-4 6-4 3.5 0 5 3.5 3.5 6.5C19 16.5 12 21 12 21z"/></svg></span>
         <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=900&auto=format&fit=crop" alt="">
         <div class="sprice"><small>da </small><b>€250</b><small>/notte</small></div></div>
       <div class="suite-body">
         <div class="specs"><span class="sp"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 20c0-3.2 2.5-5 5.5-5s5.5 1.8 5.5 5"/><path d="M16 5.6a3 3 0 0 1 0 4.8M17.5 15c2.3.5 3.5 2 3.5 5"/></svg>6 ospiti</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M3 16v-4a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v4M3 16h18M5 9V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v2"/></svg>3 camere</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M3 18v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4M3 18v2M21 18v2M3 14h18M6 12V9.6A1.6 1.6 0 0 1 7.6 8h2.8A1.6 1.6 0 0 1 12 9.6V12"/></svg>3 letti</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M4 12h16v3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/><path d="M7 12V6a2 2 0 0 1 4 0"/></svg>2 bagni</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M12 3v6M7 9c0-3 10-3 10 0M5 20c0-6 14-6 14 0"/></svg>Giardino privato</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M4 13h16v3a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3z"/></svg>Jacuzzi privata</span></div>
-        <a class="btn btn-gold" href="https://wa.me/393312526279?text=Ciao!%20Vorrei%20prenotare%20Mambo%20House%205" target="_blank">Scopri e prenota <span class="arr">→</span></a>
+        <div class="mini">
+          <div class="mini-flds">
+            <label>Check-in<input type="date" class="m-ci"></label>
+            <label>Check-out<input type="date" class="m-co"></label>
+            <label>Ospiti<input type="number" class="m-osp" min="1" value="6" inputmode="numeric"></label>
+          </div>
+          <button class="btn btn-gold m-btn" type="button">Verifica disponibilità <span class="arr">→</span></button>
+          <div class="m-res"></div>
+        </div>
       </div>
     </div>
-    <div class="suite">
+    <div class="suite" data-apt="m6" data-osp="2">
       <div class="suite-img"><span class="stag">Mambo House 6</span><span class="heart"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C1 9 2.5 5.5 6 5.5c2 0 3 1.2 6 4 3-2.8 4-4 6-4 3.5 0 5 3.5 3.5 6.5C19 16.5 12 21 12 21z"/></svg></span>
         <img src="https://images.unsplash.com/photo-1562438668-bcf0ca6578f0?q=80&w=900&auto=format&fit=crop" alt="">
         <div class="sprice"><small>da </small><b>€90</b><small>/notte</small></div></div>
       <div class="suite-body">
         <div class="specs"><span class="sp"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 20c0-3.2 2.5-5 5.5-5s5.5 1.8 5.5 5"/><path d="M16 5.6a3 3 0 0 1 0 4.8M17.5 15c2.3.5 3.5 2 3.5 5"/></svg>2 ospiti</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M3 16v-4a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v4M3 16h18M5 9V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v2"/></svg>1 camera</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M3 18v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4M3 18v2M21 18v2M3 14h18M6 12V9.6A1.6 1.6 0 0 1 7.6 8h2.8A1.6 1.6 0 0 1 12 9.6V12"/></svg>1 letto</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M4 12h16v3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/><path d="M7 12V6a2 2 0 0 1 4 0"/></svg>1 bagno</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M12 3v6M7 9c0-3 10-3 10 0M5 20c0-6 14-6 14 0"/></svg>Giardino privato</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M4 13h16v3a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3z"/></svg>Jacuzzi privata</span></div>
-        <a class="btn btn-gold" href="https://wa.me/393312526279?text=Ciao!%20Vorrei%20prenotare%20Mambo%20House%206" target="_blank">Scopri e prenota <span class="arr">→</span></a>
+        <div class="mini">
+          <div class="mini-flds">
+            <label>Check-in<input type="date" class="m-ci"></label>
+            <label>Check-out<input type="date" class="m-co"></label>
+            <label>Ospiti<input type="number" class="m-osp" min="1" value="2" inputmode="numeric"></label>
+          </div>
+          <button class="btn btn-gold m-btn" type="button">Verifica disponibilità <span class="arr">→</span></button>
+          <div class="m-res"></div>
+        </div>
       </div>
     </div>
-    <div class="suite">
+    <div class="suite" data-apt="m7" data-osp="5">
       <div class="suite-img"><span class="stag villa">Mambo House 7</span><span class="heart"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C1 9 2.5 5.5 6 5.5c2 0 3 1.2 6 4 3-2.8 4-4 6-4 3.5 0 5 3.5 3.5 6.5C19 16.5 12 21 12 21z"/></svg></span>
         <img src="https://images.unsplash.com/photo-1531971589569-0d9370cbe1e5?q=80&w=900&auto=format&fit=crop" alt="">
         <div class="sprice"><small>da </small><b>€200</b><small>/notte</small></div></div>
       <div class="suite-body">
         <div class="specs"><span class="sp"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 20c0-3.2 2.5-5 5.5-5s5.5 1.8 5.5 5"/><path d="M16 5.6a3 3 0 0 1 0 4.8M17.5 15c2.3.5 3.5 2 3.5 5"/></svg>5 ospiti</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M3 16v-4a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v4M3 16h18M5 9V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v2"/></svg>2 camere</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M3 18v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4M3 18v2M21 18v2M3 14h18M6 12V9.6A1.6 1.6 0 0 1 7.6 8h2.8A1.6 1.6 0 0 1 12 9.6V12"/></svg>3 letti</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M4 12h16v3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/><path d="M7 12V6a2 2 0 0 1 4 0"/></svg>1 bagno</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M12 3v6M7 9c0-3 10-3 10 0M5 20c0-6 14-6 14 0"/></svg>Giardino privato</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M4 13h16v3a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3z"/></svg>Jacuzzi privata</span></div>
-        <a class="btn btn-gold" href="https://wa.me/393312526279?text=Ciao!%20Vorrei%20prenotare%20Mambo%20House%207%20(Villa)" target="_blank">Scopri e prenota <span class="arr">→</span></a>
+        <div class="mini">
+          <div class="mini-flds">
+            <label>Check-in<input type="date" class="m-ci"></label>
+            <label>Check-out<input type="date" class="m-co"></label>
+            <label>Ospiti<input type="number" class="m-osp" min="1" value="5" inputmode="numeric"></label>
+          </div>
+          <button class="btn btn-gold m-btn" type="button">Verifica disponibilità <span class="arr">→</span></button>
+          <div class="m-res"></div>
+        </div>
       </div>
     </div>
-    <div class="suite">
+    <div class="suite" data-apt="m0" data-osp="10">
       <div class="suite-img"><span class="stag villa">Mambo House 0</span><span class="heart"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C1 9 2.5 5.5 6 5.5c2 0 3 1.2 6 4 3-2.8 4-4 6-4 3.5 0 5 3.5 3.5 6.5C19 16.5 12 21 12 21z"/></svg></span>
         <img src="https://images.unsplash.com/photo-1613977257365-aaae5a9817ff?q=80&w=900&auto=format&fit=crop" alt="">
         <div class="sprice"><small>da </small><b>€400</b><small>/notte</small></div></div>
       <div class="suite-body">
         <div class="specs"><span class="sp"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 20c0-3.2 2.5-5 5.5-5s5.5 1.8 5.5 5"/><path d="M16 5.6a3 3 0 0 1 0 4.8M17.5 15c2.3.5 3.5 2 3.5 5"/></svg>10 ospiti</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M3 16v-4a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v4M3 16h18M5 9V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v2"/></svg>5 camere</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M3 18v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4M3 18v2M21 18v2M3 14h18M6 12V9.6A1.6 1.6 0 0 1 7.6 8h2.8A1.6 1.6 0 0 1 12 9.6V12"/></svg>5 letti</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M4 12h16v3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/><path d="M7 12V6a2 2 0 0 1 4 0"/></svg>2 bagni</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M12 3v6M7 9c0-3 10-3 10 0M5 20c0-6 14-6 14 0"/></svg>Giardino privato</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M4 13h16v3a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3z"/></svg>Jacuzzi privata</span></div>
-        <a class="btn btn-gold" href="https://wa.me/393312526279?text=Ciao!%20Vorrei%20prenotare%20Mambo%20House%200%20(Villa)" target="_blank">Scopri e prenota <span class="arr">→</span></a>
+        <div class="mini">
+          <div class="mini-flds">
+            <label>Check-in<input type="date" class="m-ci"></label>
+            <label>Check-out<input type="date" class="m-co"></label>
+            <label>Ospiti<input type="number" class="m-osp" min="1" value="10" inputmode="numeric"></label>
+          </div>
+          <button class="btn btn-gold m-btn" type="button">Verifica disponibilità <span class="arr">→</span></button>
+          <div class="m-res"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -436,23 +524,6 @@
   </div>
   <div class="rev-nav"><span class="ar">‹</span><span class="dots"><i class="on"></i><i></i><i></i><i></i></span><span class="ar">›</span></div>
 </div></section>
-
-<!-- CTA -->
-<section class="cta reveal"><div class="cta-bg"></div><div class="cta-scrim"></div>
-  <div class="wrap"><div class="inner">
-    <div>
-      <h2>Pronto a vivere <span class="gold">Milano</span><br>nel massimo del <span class="gold">comfort</span>?</h2>
-      <p class="sub">Prenota ora la tua suite e lasciati sorprendere da un'esperienza senza pari.</p>
-    </div>
-    <div class="book">
-      <div class="fld"><label>Check-in</label><input type="date" id="ci"></div>
-      <div class="fld"><label>Check-out</label><input type="date" id="co"></div>
-      <div class="fld"><label>Ospiti totali</label><input type="number" id="osp" min="1" max="60" value="2" inputmode="numeric"></div>
-      <div class="fld act"><button class="btn btn-gold" id="verify">Verifica disponibilità <span class="arr">→</span></button></div>
-    <div id="dispoResult" class="dispo"></div>
-    </div>
-  </div></div>
-</section>
 
 <!-- FOOTER -->
 <footer id="contatti"><div class="wrap">
@@ -542,6 +613,42 @@
       out.className='dispo show';
       out.innerHTML=`Per questa richiesta scrivici su WhatsApp: <a class="wa-inline" target="_blank" rel="noopener" href="https://wa.me/${WA}?text=${encodeURIComponent(msg)}">Apri WhatsApp →</a>`;
     }finally{vbtn.disabled=false;}
+  });
+
+  // --- verifica disponibilità per SINGOLO appartamento (sulle card) ---
+  document.querySelectorAll('.m-btn').forEach(btn=>{
+    btn.addEventListener('click',async()=>{
+      const card=btn.closest('.suite');
+      const apt=card.dataset.apt, osp=parseInt(card.dataset.osp,10);
+      const nome=card.querySelector('.stag').textContent.trim();
+      const ci=card.querySelector('.m-ci').value, co=card.querySelector('.m-co').value;
+      const g=parseInt(card.querySelector('.m-osp').value||'1',10);
+      const res=card.querySelector('.m-res');
+      if(!ci||!co){res.className='m-res show err';res.textContent='Seleziona check-in e check-out.';return;}
+      if(co<=ci){res.className='m-res show err';res.textContent='Il check-out deve essere dopo il check-in.';return;}
+      const over=g>osp;
+      const capWarn=over?`<br><span style="color:var(--gold-b)">Nota: questo alloggio ospita fino a ${osp} persone.</span>`:'';
+      res.className='m-res show';res.textContent='Verifico…';
+      btn.disabled=true;
+      try{
+        const r=await fetch(`/api/disponibilita?apt=${apt}&checkin=${ci}&checkout=${co}`);
+        if(!r.ok) throw new Error('api');
+        const d=await r.json();
+        if(d.libero){
+          const msg=`Ciao Mambo House! ${nome} è libero dal ${itDate(ci)} al ${itDate(co)}? Vorrei prenotare per ${g} ospiti.`;
+          res.className='m-res show '+(over?'warn':'ok');
+          res.innerHTML=`<b>✓ Libero</b> dal ${itDate(ci)} al ${itDate(co)}.${capWarn}<br><a class="wa-inline" target="_blank" rel="noopener" href="https://wa.me/${WA}?text=${encodeURIComponent(msg)}">Prenota su WhatsApp →</a>`;
+        }else{
+          const msg=`Ciao! ${nome} non risulta libero dal ${itDate(ci)} al ${itDate(co)}: avete alternative per ${g} ospiti?`;
+          res.className='m-res show err';
+          res.innerHTML=`<b>Non disponibile</b> in queste date.${capWarn}<br><a class="wa-inline" target="_blank" rel="noopener" href="https://wa.me/${WA}?text=${encodeURIComponent(msg)}">Chiedi alternative →</a>`;
+        }
+      }catch(e){
+        const msg=`Ciao Mambo House! Vorrei sapere se ${nome} è libero dal ${itDate(ci)} al ${itDate(co)} per ${g} ospiti.`;
+        res.className='m-res show';
+        res.innerHTML=`Scrivici su WhatsApp: <a class="wa-inline" target="_blank" rel="noopener" href="https://wa.me/${WA}?text=${encodeURIComponent(msg)}">Apri →</a>`;
+      }finally{btn.disabled=false;}
+    });
   });
 </script>
 </body>
