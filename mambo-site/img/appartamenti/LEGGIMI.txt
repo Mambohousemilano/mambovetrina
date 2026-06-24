@@ -1,0 +1,26 @@
+COPERTINE APPARTAMENTI — Mambo House
+=====================================
+
+Metti qui la foto di copertina di ogni appartamento con questi nomi
+(l'estensione puo' essere .jpg OPPURE .JPG: il sito le riconosce entrambe):
+
+  mh0  ->  Mambo House 0 (villa, €400)
+  mh1  ->  Mambo House 1 (€75)
+  mh2  ->  Mambo House 2 (€100)
+  mh3  ->  Mambo House 3 (€100)
+  mh5  ->  Mambo House 5 (€250)
+  mh6  ->  Mambo House 6 (€90)
+  mh7  ->  Mambo House 7 (villa, €200)
+
+Esempi validi:  mh1.jpg   oppure   mh1.JPG   (vanno bene entrambi)
+
+COME FUNZIONA
+- Il sito cerca prima mhX.jpg, poi mhX.JPG (e infine il segnaposto .png).
+- Quindi NON devi rinominare le foto: caricale come sono, basta che il
+  nome (prima del punto) sia esatto: mh0, mh1, mh2, mh3, mh5, mh6, mh7.
+
+NOTE
+- I file mhX.png in questa cartella sono solo SEGNAPOSTO: restano come
+  sfondo finche' non carichi la tua foto, poi vengono ignorati da soli.
+- Formato consigliato: orizzontale, circa 900x600 px o piu' grande.
+- Se manca una foto, la scheda mostra comunque uno sfondo elegante.
