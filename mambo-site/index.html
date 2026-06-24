@@ -351,6 +351,14 @@
     .book input[type=date]::-webkit-date-and-time-value,.mini-flds input[type=date]::-webkit-date-and-time-value{text-align:left}
   }
 </style>
+<script>
+function imgFallback(img){
+  var exts=['JPG','jpeg','JPEG','png','PNG'];
+  var i=parseInt(img.getAttribute('data-ei')||'0',10);
+  if(i<exts.length){ img.setAttribute('data-ei',i+1); img.src=img.getAttribute('data-base')+'.'+exts[i]; }
+  else { img.onerror=null; img.style.display='none'; }
+}
+</script>
 </head>
 <body>
 
@@ -437,7 +445,7 @@
   <div class="grid3">
     <div class="suite" data-apt="m1" data-osp="2">
       <div class="suite-img"><span class="stag">Mambo House 1</span><span class="heart"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C1 9 2.5 5.5 6 5.5c2 0 3 1.2 6 4 3-2.8 4-4 6-4 3.5 0 5 3.5 3.5 6.5C19 16.5 12 21 12 21z"/></svg></span>
-        <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?q=80&w=900&auto=format&fit=crop" alt="">
+        <img data-base="img/appartamenti/mh1" src="img/appartamenti/mh1.jpg" alt="" onerror="imgFallback(this)">
         <div class="sprice"><small>da </small><b>€75</b><small>/notte</small></div></div>
       <div class="suite-body">
         <div class="specs"><span class="sp"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 20c0-3.2 2.5-5 5.5-5s5.5 1.8 5.5 5"/><path d="M16 5.6a3 3 0 0 1 0 4.8M17.5 15c2.3.5 3.5 2 3.5 5"/></svg>2 ospiti</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M3 16v-4a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v4M3 16h18M5 9V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v2"/></svg>1 camera</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M3 18v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4M3 18v2M21 18v2M3 14h18M6 12V9.6A1.6 1.6 0 0 1 7.6 8h2.8A1.6 1.6 0 0 1 12 9.6V12"/></svg>1 letto</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M4 12h16v3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/><path d="M7 12V6a2 2 0 0 1 4 0"/></svg>1 bagno</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M12 3v6M7 9c0-3 10-3 10 0M5 20c0-6 14-6 14 0"/></svg>Giardino privato</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M4 13h16v3a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3z"/></svg>Jacuzzi condivisa</span></div>
@@ -454,7 +462,7 @@
     </div>
     <div class="suite" data-apt="m2" data-osp="3">
       <div class="suite-img"><span class="stag">Mambo House 2</span><span class="heart"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C1 9 2.5 5.5 6 5.5c2 0 3 1.2 6 4 3-2.8 4-4 6-4 3.5 0 5 3.5 3.5 6.5C19 16.5 12 21 12 21z"/></svg></span>
-        <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=900&auto=format&fit=crop" alt="">
+        <img data-base="img/appartamenti/mh2" src="img/appartamenti/mh2.jpg" alt="" onerror="imgFallback(this)">
         <div class="sprice"><small>da </small><b>€100</b><small>/notte</small></div></div>
       <div class="suite-body">
         <div class="specs"><span class="sp"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 20c0-3.2 2.5-5 5.5-5s5.5 1.8 5.5 5"/><path d="M16 5.6a3 3 0 0 1 0 4.8M17.5 15c2.3.5 3.5 2 3.5 5"/></svg>3 ospiti</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M3 16v-4a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v4M3 16h18M5 9V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v2"/></svg>1 camera</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M3 18v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4M3 18v2M21 18v2M3 14h18M6 12V9.6A1.6 1.6 0 0 1 7.6 8h2.8A1.6 1.6 0 0 1 12 9.6V12"/></svg>1 letto + divano</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M4 12h16v3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/><path d="M7 12V6a2 2 0 0 1 4 0"/></svg>1 bagno</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M12 3v6M7 9c0-3 10-3 10 0M5 20c0-6 14-6 14 0"/></svg>Giardino privato</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M4 13h16v3a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3z"/></svg>Jacuzzi condivisa</span></div>
@@ -471,7 +479,7 @@
     </div>
     <div class="suite" data-apt="m3" data-osp="3">
       <div class="suite-img"><span class="stag">Mambo House 3</span><span class="heart"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C1 9 2.5 5.5 6 5.5c2 0 3 1.2 6 4 3-2.8 4-4 6-4 3.5 0 5 3.5 3.5 6.5C19 16.5 12 21 12 21z"/></svg></span>
-        <img src="https://images.unsplash.com/photo-1607712617949-8c993d290809?q=80&w=900&auto=format&fit=crop" alt="">
+        <img data-base="img/appartamenti/mh3" src="img/appartamenti/mh3.jpg" alt="" onerror="imgFallback(this)">
         <div class="sprice"><small>da </small><b>€100</b><small>/notte</small></div></div>
       <div class="suite-body">
         <div class="specs"><span class="sp"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 20c0-3.2 2.5-5 5.5-5s5.5 1.8 5.5 5"/><path d="M16 5.6a3 3 0 0 1 0 4.8M17.5 15c2.3.5 3.5 2 3.5 5"/></svg>3 ospiti</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M3 16v-4a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v4M3 16h18M5 9V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v2"/></svg>1 camera</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M3 18v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4M3 18v2M21 18v2M3 14h18M6 12V9.6A1.6 1.6 0 0 1 7.6 8h2.8A1.6 1.6 0 0 1 12 9.6V12"/></svg>2 letti</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M4 12h16v3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/><path d="M7 12V6a2 2 0 0 1 4 0"/></svg>1 bagno</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M12 3v6M7 9c0-3 10-3 10 0M5 20c0-6 14-6 14 0"/></svg>Giardino privato</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M4 13h16v3a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3z"/></svg>Jacuzzi condivisa</span></div>
@@ -488,7 +496,7 @@
     </div>
     <div class="suite" data-apt="m5" data-osp="6">
       <div class="suite-img"><span class="stag">Mambo House 5</span><span class="heart"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C1 9 2.5 5.5 6 5.5c2 0 3 1.2 6 4 3-2.8 4-4 6-4 3.5 0 5 3.5 3.5 6.5C19 16.5 12 21 12 21z"/></svg></span>
-        <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=900&auto=format&fit=crop" alt="">
+        <img data-base="img/appartamenti/mh5" src="img/appartamenti/mh5.jpg" alt="" onerror="imgFallback(this)">
         <div class="sprice"><small>da </small><b>€250</b><small>/notte</small></div></div>
       <div class="suite-body">
         <div class="specs"><span class="sp"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 20c0-3.2 2.5-5 5.5-5s5.5 1.8 5.5 5"/><path d="M16 5.6a3 3 0 0 1 0 4.8M17.5 15c2.3.5 3.5 2 3.5 5"/></svg>6 ospiti</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M3 16v-4a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v4M3 16h18M5 9V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v2"/></svg>3 camere</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M3 18v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4M3 18v2M21 18v2M3 14h18M6 12V9.6A1.6 1.6 0 0 1 7.6 8h2.8A1.6 1.6 0 0 1 12 9.6V12"/></svg>3 letti</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M4 12h16v3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/><path d="M7 12V6a2 2 0 0 1 4 0"/></svg>2 bagni</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M12 3v6M7 9c0-3 10-3 10 0M5 20c0-6 14-6 14 0"/></svg>Giardino privato</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M4 13h16v3a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3z"/></svg>Jacuzzi privata</span></div>
@@ -505,7 +513,7 @@
     </div>
     <div class="suite" data-apt="m6" data-osp="2">
       <div class="suite-img"><span class="stag">Mambo House 6</span><span class="heart"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C1 9 2.5 5.5 6 5.5c2 0 3 1.2 6 4 3-2.8 4-4 6-4 3.5 0 5 3.5 3.5 6.5C19 16.5 12 21 12 21z"/></svg></span>
-        <img src="https://images.unsplash.com/photo-1562438668-bcf0ca6578f0?q=80&w=900&auto=format&fit=crop" alt="">
+        <img data-base="img/appartamenti/mh6" src="img/appartamenti/mh6.jpg" alt="" onerror="imgFallback(this)">
         <div class="sprice"><small>da </small><b>€90</b><small>/notte</small></div></div>
       <div class="suite-body">
         <div class="specs"><span class="sp"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 20c0-3.2 2.5-5 5.5-5s5.5 1.8 5.5 5"/><path d="M16 5.6a3 3 0 0 1 0 4.8M17.5 15c2.3.5 3.5 2 3.5 5"/></svg>2 ospiti</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M3 16v-4a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v4M3 16h18M5 9V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v2"/></svg>1 camera</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M3 18v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4M3 18v2M21 18v2M3 14h18M6 12V9.6A1.6 1.6 0 0 1 7.6 8h2.8A1.6 1.6 0 0 1 12 9.6V12"/></svg>1 letto</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M4 12h16v3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/><path d="M7 12V6a2 2 0 0 1 4 0"/></svg>1 bagno</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M12 3v6M7 9c0-3 10-3 10 0M5 20c0-6 14-6 14 0"/></svg>Giardino privato</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M4 13h16v3a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3z"/></svg>Jacuzzi privata</span></div>
@@ -522,7 +530,7 @@
     </div>
     <div class="suite" data-apt="m7" data-osp="5">
       <div class="suite-img"><span class="stag villa">Mambo House 7</span><span class="heart"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C1 9 2.5 5.5 6 5.5c2 0 3 1.2 6 4 3-2.8 4-4 6-4 3.5 0 5 3.5 3.5 6.5C19 16.5 12 21 12 21z"/></svg></span>
-        <img src="https://images.unsplash.com/photo-1531971589569-0d9370cbe1e5?q=80&w=900&auto=format&fit=crop" alt="">
+        <img data-base="img/appartamenti/mh7" src="img/appartamenti/mh7.jpg" alt="" onerror="imgFallback(this)">
         <div class="sprice"><small>da </small><b>€200</b><small>/notte</small></div></div>
       <div class="suite-body">
         <div class="specs"><span class="sp"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 20c0-3.2 2.5-5 5.5-5s5.5 1.8 5.5 5"/><path d="M16 5.6a3 3 0 0 1 0 4.8M17.5 15c2.3.5 3.5 2 3.5 5"/></svg>5 ospiti</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M3 16v-4a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v4M3 16h18M5 9V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v2"/></svg>2 camere</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M3 18v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4M3 18v2M21 18v2M3 14h18M6 12V9.6A1.6 1.6 0 0 1 7.6 8h2.8A1.6 1.6 0 0 1 12 9.6V12"/></svg>3 letti</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M4 12h16v3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/><path d="M7 12V6a2 2 0 0 1 4 0"/></svg>1 bagno</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M12 3v6M7 9c0-3 10-3 10 0M5 20c0-6 14-6 14 0"/></svg>Giardino privato</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M4 13h16v3a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3z"/></svg>Jacuzzi privata</span></div>
@@ -539,7 +547,7 @@
     </div>
     <div class="suite" data-apt="m0" data-osp="10">
       <div class="suite-img"><span class="stag villa">Mambo House 0</span><span class="heart"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C1 9 2.5 5.5 6 5.5c2 0 3 1.2 6 4 3-2.8 4-4 6-4 3.5 0 5 3.5 3.5 6.5C19 16.5 12 21 12 21z"/></svg></span>
-        <img src="https://images.unsplash.com/photo-1613977257365-aaae5a9817ff?q=80&w=900&auto=format&fit=crop" alt="">
+        <img data-base="img/appartamenti/mh0" src="img/appartamenti/mh0.jpg" alt="" onerror="imgFallback(this)">
         <div class="sprice"><small>da </small><b>€400</b><small>/notte</small></div></div>
       <div class="suite-body">
         <div class="specs"><span class="sp"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 20c0-3.2 2.5-5 5.5-5s5.5 1.8 5.5 5"/><path d="M16 5.6a3 3 0 0 1 0 4.8M17.5 15c2.3.5 3.5 2 3.5 5"/></svg>10 ospiti</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M3 16v-4a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v4M3 16h18M5 9V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v2"/></svg>5 camere</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M3 18v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4M3 18v2M21 18v2M3 14h18M6 12V9.6A1.6 1.6 0 0 1 7.6 8h2.8A1.6 1.6 0 0 1 12 9.6V12"/></svg>5 letti</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M4 12h16v3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/><path d="M7 12V6a2 2 0 0 1 4 0"/></svg>2 bagni</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M12 3v6M7 9c0-3 10-3 10 0M5 20c0-6 14-6 14 0"/></svg>Giardino privato</span><span class="sp"><svg viewBox="0 0 24 24"><path d="M4 13h16v3a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3z"/></svg>Jacuzzi privata</span></div>
